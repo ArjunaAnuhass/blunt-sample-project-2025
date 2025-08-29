@@ -127,8 +127,6 @@ function Navbar({ isDark }: { isDark: boolean }) {
             </div>
           </div>
 
-          <div className="opacity-70">|</div>
-          <div className={`${isDark ? "" : "invert"}`}>Ship to</div>
           <div className={`flex space-x-6 ${isDark ? "" : "invert"}`}>
             <Image
               src="/images/search.svg"

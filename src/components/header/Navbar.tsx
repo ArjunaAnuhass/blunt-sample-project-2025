@@ -37,7 +37,7 @@ function Navbar() {
               >
                 <a className={`${!isOpen && isFirstHovered ? "invert" : ""}`} href={link.href}>{link.label}</a>
                 {index === 0 && (
-                  <div className="absolute bg-white shadow-lg opacity-0 invisible group-hover/navitem:opacity-100 group-hover/navitem:visible transition-all duration-200">
+                  <div className="absolute left-0 top-full w-screen bg-white shadow-lg opacity-0 invisible group-hover/navitem:opacity-100 group-hover/navitem:visible transition-all duration-200">
                     <div className="max-w-screen mx-auto px-6 py-6 grid grid-cols-2 gap-6">
                       <div className="flex flex-col space-y-2">
                         <h4 className="font-bold text-gray-800">Category 1</h4>

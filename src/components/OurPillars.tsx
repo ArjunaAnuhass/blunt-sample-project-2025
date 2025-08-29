@@ -6,7 +6,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 function OurPillars() {
-    
+
   return (
     <div className="bg-primary z-20">
       <div className="pt-[80px] pb-[120px]">

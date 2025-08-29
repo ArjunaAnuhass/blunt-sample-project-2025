@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Button from "../common/Button";
 
-function Navbar() {
+function Navbar({ isDark }: { isDark: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isFirstHovered, setIsFirstHovered] = useState(false);
 
@@ -15,7 +15,7 @@ function Navbar() {
       <nav
         className={`flex items-center justify-between px-6 md:px-8 py-6 lg:px-4 relative z-20 transition-colors duration-300 ${
           isOpen || isFirstHovered ? "bg-white" : "bg-transparent"
-        }`}
+        } ${isDark ? "text-black bg-white" : "text-white"}`}
       >
         <div className="flex items-center">
           <button className="md:hidden mr-4" onClick={() => setIsOpen(!isOpen)}>
@@ -63,7 +63,7 @@ function Navbar() {
           alt="Blunt Logo"
           width={100}
           height={50}
-          className={`${!isOpen && !isFirstHovered ? "invert" : ""}`}
+          className={`${isDark ? "" : "invert"}`}
         />
         <div className="flex items-center space-x-8">
           <div className="hidden md:flex items-center space-x-3 relative group">
@@ -128,28 +128,25 @@ function Navbar() {
           </div>
 
           <div className="opacity-70">|</div>
-          <div className={`${!isOpen && isFirstHovered ? "invert" : ""}`}>Ship to</div>
-          <div className="flex space-x-6">
+          <div className={`${isDark ? "" : "invert"}`}>Ship to</div>
+          <div className={`flex space-x-6 ${isDark ? "" : "invert"}`}>
             <Image
               src="/images/search.svg"
               alt="Search"
               width={20}
               height={20}
-              className={`${!isOpen && !isFirstHovered ? "invert" : ""}`}
             />
             <Image
               src="/images/profile.svg"
               alt="Profile"
               width={20}
               height={20}
-              className={`${!isOpen && !isFirstHovered ? "invert" : ""}`}
             />
             <Image
               src="/images/cart.svg"
               alt="Cart"
               width={20}
               height={20}
-              className={`${!isOpen && !isFirstHovered ? "invert" : ""}`}
             />
           </div>
         </div>

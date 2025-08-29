@@ -5,15 +5,18 @@ import Navbar from "./Navbar";
 function Header() {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
+      const currentScroll = window.scrollY;
+      if (currentScroll > lastScrollY) {
         setShow(false);
       } else {
         setShow(true);
       }
-      setLastScrollY(window.scrollY);
+      setLastScrollY(currentScroll);
+      setScrolledPastHero(currentScroll > window.innerHeight * 0.9);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -27,7 +30,7 @@ function Header() {
         show ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <Navbar />
+      <Navbar isDark={scrolledPastHero} />
     </header>
   );
 }
